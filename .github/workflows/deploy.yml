@@ -24,4 +24,5 @@ jobs:
       run: |
         echo "$SSH_KEY" > key
         chmod 600 key
+        echo $SSH_HOST $SSH_USER $SSH_KEY
         rsync -avz -e "ssh -i key -o StrictHostKeyChecking=no" --exclude='.git*' ./ $SSH_USER@$SSH_HOST:/htdocs/back.turkcezormu.com/
